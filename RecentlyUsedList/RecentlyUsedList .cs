@@ -19,7 +19,7 @@ namespace RecentlyUsedList
 
         public void Add(string input)
         {
-            if (string.IsNullOrEmpty(input) || input == null)
+            if (string.IsNullOrEmpty(input))
                 throw new ArgumentNullException();
 
             if (_count == _capacity - 1)
