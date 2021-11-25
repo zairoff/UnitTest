@@ -19,7 +19,7 @@ namespace RecentlyUsedList
 
         public void Add(string input)
         {
-            if (string.IsNullOrEmpty(input))
+            if (string.IsNullOrEmpty(input) || input == null)
                 throw new ArgumentNullException();
 
             if (_count == _capacity - 1)
@@ -31,6 +31,27 @@ namespace RecentlyUsedList
             _holder.Add(input);
             _items.AddFirst(input);
             _count++;
+        }
+
+        public string this[int index]
+        {
+            get
+            {
+                if (index >= _capacity || index >= _count)
+                    throw new IndexOutOfRangeException();
+
+                var move = _items.First;
+                var dest = _items.First;
+
+                // here is used a simple searching algorithm. TODO: need to use BinarySearch algo.
+                while (index-- >= 0)
+                {
+                    dest = move;
+                    move = move.Next;
+                }
+
+                return dest.Value;
+            }
         }
 
         public void Print()
