@@ -56,5 +56,29 @@ namespace RecentlyUsedListTests
             // Assert
             Assert.Equal("3", list[0]);
         }
+
+        [Fact]
+        public void Indexer_WhenIndexOutOfRange_ShouldThrowException()
+        {
+            // Arrange
+            var list = new List();
+
+            // Act & Assert 
+            Assert.Throws<IndexOutOfRangeException>(() => list[6]);
+        }
+
+        [Fact]
+        public void Indexer_WhenIndexExcpected_ShouldReturnItem()
+        {
+            // Arrange
+            var list = new List();
+            list.Add("1");
+
+            // Act
+            var result = list[0];
+
+            // Assert 
+            Assert.Equal("1", result);
+        }
     }
 }
