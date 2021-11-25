@@ -22,7 +22,7 @@ namespace RecentlyUsedList
             if (string.IsNullOrEmpty(input))
                 throw new ArgumentNullException();
 
-            if (_count == _capacity - 1)
+            if (_count == _capacity)
                 throw new OverflowException();
 
             if (_holder.Contains(input))
