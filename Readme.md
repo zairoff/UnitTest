@@ -1,5 +1,3 @@
-# .NET Mentoring basics 
-
 ## Recently Used List
 
 Develop a recently-used-list class to hold strings
